@@ -12,16 +12,52 @@
     tools:context="com.example.vinicius.myapplication.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
-    <EditText
+        android:text="Horizontal Linear Layout"
+        android:id="@+id/buttonHorizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickHorizontal"/>
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:text="Verical Linear layout"
+        android:id="@+id/buttonVertical"
+        android:layout_below="@+id/buttonHorizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:onClick="onClickVertical"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grid Layout"
+        android:id="@+id/buttonGrid"
+        android:layout_below="@+id/buttonVertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:onClick="onClickGrid"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frame Layout"
+        android:id="@+id/buttonFrame"
+        android:layout_below="@+id/buttonGrid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:onClick="onClickFrame"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Table Layout"
+        android:id="@+id/buttonTable"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/buttonFrame"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickTable"/>
 </RelativeLayout>
