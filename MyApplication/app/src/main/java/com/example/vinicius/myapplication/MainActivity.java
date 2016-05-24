@@ -58,4 +58,29 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, HorizontalActivity.class);
         startActivity(intent);
     }
+
+    public void onClickVertical(View v){
+        Toast.makeText(getApplicationContext(), "Vertical Layout", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, VerticalActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickGrid(View v){
+        Toast.makeText(getApplicationContext(), "Grid Layout", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, GridActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickTable(View v){
+        Toast.makeText(getApplicationContext(), "Table Layout", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, TableActivity.class);
+        startActivity(intent);
+    }
+    
+    public void onClickFrame(View v){
+        Toast.makeText(getApplicationContext(), "Frame Layout", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, FrameActivity.class);
+        startActivity(intent);
+    }
+
 }

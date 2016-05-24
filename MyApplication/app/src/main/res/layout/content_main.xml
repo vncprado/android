@@ -44,20 +44,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Frame Layout"
-        android:id="@+id/buttonFrame"
+        android:text="Table Layout"
+        android:id="@+id/buttonTable"
+        android:layout_marginTop="35dp"
         android:layout_below="@+id/buttonGrid"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:onClick="onClickFrame"/>
+        android:onClick="onClickTable"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Table Layout"
-        android:id="@+id/buttonTable"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/buttonFrame"
+        android:text="Frame Layout"
+        android:id="@+id/buttonFrame"
+        android:layout_below="@+id/buttonTable"
         android:layout_centerHorizontal="true"
-        android:onClick="onClickTable"/>
+        android:layout_marginTop="35dp"
+        android:onClick="onClickFrame"/>
+
+
 </RelativeLayout>
