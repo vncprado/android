@@ -30,4 +30,13 @@
         android:layout_below="@id/buttonImplicitIntent"
         android:layout_centerHorizontal="true"
         android:onClick="buttonExplicitIntentOnClick"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Up"
+        android:id="@+id/button"
+        android:layout_below="@+id/buttonExplicitIntent"
+        android:layout_centerHorizontal="true"
+        android:onClick="buttonUpOnClick"/>
 </RelativeLayout>

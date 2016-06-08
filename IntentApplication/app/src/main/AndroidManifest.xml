@@ -18,7 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExplicitActivity"></activity>
+        <activity
+            android:name=".ExplicitActivity"></activity>
+        <activity
+            android:name=".UpActivity"
+            android:label="@string/title_activity_up"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.vinicius.intentapplication.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

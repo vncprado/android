@@ -65,11 +65,17 @@ public class MainActivity extends AppCompatActivity {
     public void buttonImplicitIntentOnClick(View v){
         String textMessage = "TESTE";
         Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        Toast.makeText(this, Intent.ACTION_SEND, Toast.LENGTH_SHORT).show();
         sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
         sendIntent.setType("text/plain");
 
         if (sendIntent.resolveActivity(getPackageManager()) != null){
             startActivity(sendIntent);
         }
+    }
+
+    public void buttonUpOnClick(View v){
+        Intent explicitIntent = new Intent(this, UpActivity.class);
+        startActivity(explicitIntent);
     }
 }
