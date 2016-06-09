@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonImplicitIntentOnClick(View v){
-        String textMessage = "TESTE";
+        String textMessage = "TEST";
         Intent sendIntent = new Intent(Intent.ACTION_SEND);
         Toast.makeText(this, Intent.ACTION_SEND, Toast.LENGTH_SHORT).show();
         sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
