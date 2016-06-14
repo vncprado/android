@@ -12,17 +12,39 @@
     tools:context="com.example.vinicius.fragmentsapp.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/clickLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            android:id="@+id/textView" />
+
+        <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
+        android:text="@string/button"
+        android:id="@+id/buttonTest"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioTest"
+            android:text="@string/radio"
+            />
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="vertical"
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/clickLayout"
         android:layout_alignParentStart="true"></LinearLayout>
+
 </RelativeLayout>

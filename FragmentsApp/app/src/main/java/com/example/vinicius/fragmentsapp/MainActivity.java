@@ -1,30 +1,32 @@
 package com.example.vinicius.fragmentsapp;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnClickListener;
 
-public class MainActivity extends AppCompatActivity {
-
-    public int indexFrag = 0;
+public class MainActivity extends AppCompatActivity implements OnClickListener {
+    private Button testButton;
+    private TextView testText;
+    private RadioButton radioTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -42,19 +44,23 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
 
                     ViewGroup container = (ViewGroup) findViewById(R.id.fragment_container);
-                    indexFrag = container.indexOfChild(fragment.getView());
 
                     LinearLayout myLayout = (LinearLayout) findViewById(fragment.getId());
                     TextView tv = new TextView(getApplicationContext());
-                    tv.setText("Just a test! " + Integer.toString(indexFrag));
+                    tv.setText("Just a test!");
+                    tv.setAllCaps(true);
                     myLayout.addView(tv);
 
-                    Toast.makeText(getApplicationContext(), "Testing Floating Action Button " + Integer.toString(indexFrag), Toast.LENGTH_SHORT).show();
-    //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-    //                        .setAction("Action", null).show();
+                    Toast.makeText(getApplicationContext(), "Testing Floating Action Button", Toast.LENGTH_SHORT).show();
                 }
             });
         }
+        testButton = (Button) findViewById(R.id.buttonTest);
+        testButton.setOnClickListener(this);
+        testText = (TextView) findViewById(R.id.textView);
+        testText.setOnClickListener(this);
+        radioTest = (RadioButton) findViewById(R.id.radioTest);
+        radioTest.setOnClickListener(this);
     }
 
     @Override
@@ -77,5 +83,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String txt = "";
+        if (v instanceof Button){
+            Button b = (Button) v;
+            txt = (String) b.getText();
+        }else if (v instanceof TextView) {
+            TextView t = (TextView) v;
+            txt = (String) t.getText();
+        } else if (v instanceof RadioButton) {
+            RadioButton r = (RadioButton) v;
+            txt = (String) r.getText();
+        }
+        Toast.makeText(this, txt + " click", Toast.LENGTH_SHORT).show();
     }
 }

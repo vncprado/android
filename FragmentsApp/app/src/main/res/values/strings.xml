@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Fragments App</string>
     <string name="action_settings">Settings</string>
+    <string name="button">Button Test</string>
+    <string name="radio">Radio Test</string>
+
 </resources>
