@@ -1,5 +1,6 @@
 package com.example.vinicius.fragmentsapp;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,22 +8,27 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
     private Button testButton;
     private TextView testText;
     private RadioButton radioTest;
+    private CheckBox checkTest;
+    private ToggleButton toggleTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
                     LinearLayout myLayout = (LinearLayout) findViewById(fragment.getId());
                     TextView tv = new TextView(getApplicationContext());
-                    tv.setText("Just a test!");
+                    tv.setText("Fragment");
                     tv.setAllCaps(true);
                     myLayout.addView(tv);
 
@@ -55,12 +61,25 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 }
             });
         }
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerTest);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.planets_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
         testButton = (Button) findViewById(R.id.buttonTest);
         testButton.setOnClickListener(this);
         testText = (TextView) findViewById(R.id.textView);
         testText.setOnClickListener(this);
         radioTest = (RadioButton) findViewById(R.id.radioTest);
         radioTest.setOnClickListener(this);
+        checkTest = (CheckBox) findViewById(R.id.checkboxTest);
+        checkTest.setOnClickListener(this);
+        toggleTest = (ToggleButton) findViewById(R.id.toggleTest);
+        toggleTest.setOnClickListener(this);
     }
 
     @Override
@@ -91,13 +110,34 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         if (v instanceof Button){
             Button b = (Button) v;
             txt = (String) b.getText();
-        }else if (v instanceof TextView) {
+        }
+        if (v instanceof TextView) {
             TextView t = (TextView) v;
             txt = (String) t.getText();
-        } else if (v instanceof RadioButton) {
+        }
+        if (v instanceof RadioButton) {
             RadioButton r = (RadioButton) v;
             txt = (String) r.getText();
         }
+        if (v instanceof CheckBox) {
+            CheckBox c = (CheckBox) v;
+            if (c.isChecked()){
+                txt = c.getText() + " ON";}
+            else{
+                txt = c.getText() + " OFF";}
+        }
+
+        if (v instanceof ToggleButton) {
+            ToggleButton t = (ToggleButton) v;
+            txt = (String) t.getText();
+        }
+
         Toast.makeText(this, txt + " click", Toast.LENGTH_SHORT).show();
     }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
 }
